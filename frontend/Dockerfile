@@ -7,6 +7,10 @@ WORKDIR /app
 # Copy the package.json and package-lock.json for dependency installation
 COPY package*.json ./
 
+# Add before npm install
+RUN npm config set cache /tmp/npm-cache --global
+
+
 # Install dependencies
 RUN npm install
 
